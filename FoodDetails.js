@@ -9,15 +9,34 @@ const FoodDetails = ({ route }) => {
     useEffect(() => {
         const fetchFoodDetails = async () => {
             try {
-                const response = await fetch(`https://fineli.fi/fineli/api/v1/foods/${foodId}`);
-                const data = await response.json();
-                setFoodDetails(data);
+                // API-pyyntö ravintoarvojen hakemiseen
+                const response = await fetch(`https://fineli.fi/fineli/api/v1/foods/${foodId}`, {
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                    }
+                });
+
+            
+                const textResponse = await response.text();
+                // Tarkistetaan, että vastaus on JSON-muotoinen
+                console.log("Raw response:", textResponse);  // Lisätty konsoliloki
+
+                if (response.ok) {
+                    try {
+                        const data = JSON.parse(textResponse); 
+                        setFoodDetails(data);
+                    } catch (jsonError) {
+                        console.error("JSON Parsing Error:", jsonError); // Lisätty konsoliloki
+                    }
+                } else {
+                    console.error("API returned an error", textResponse);
+                }
             } catch (error) {
                 console.error("Error fetching food details:", error);
             } finally {
-                setLoading(false);
-            }
-        };
+                setLoading(false); 
+    }       
+    };
 
         fetchFoodDetails();
     }, [foodId]);
