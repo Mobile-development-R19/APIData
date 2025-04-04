@@ -10,10 +10,10 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='HomeScreen'>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="FoodSearch" component={FoodSearch} />
-        <Stack.Screen name="FoodDetails" component={FoodDetails} />
+      <Stack.Navigator initialRouteName='Etusivu'>
+        <Stack.Screen name="Etusivu" component={HomeScreen} />
+        <Stack.Screen name="Haku" component={FoodSearch} />
+        <Stack.Screen name="Ravintotiedot" component={FoodDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

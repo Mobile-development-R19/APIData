@@ -9,9 +9,11 @@ export default function HomeScreen({ navigation }) {
 
       <TouchableOpacity
        style={styles.button}
-      onPress={() => navigation.navigate('FoodSearch')}>
+      onPress={() => navigation.navigate('Haku')}>
         <Text style={styles.buttonText}>Hae ruokia APIsta</Text>
       </TouchableOpacity>
+
+      <Text style={styles.disclaimer}>APIn tarjoaa Fineli</Text>
     </View>
   )
 }
@@ -38,5 +40,12 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       textAlign: 'center',
       padding: 20
+    },
+    disclaimer: {
+      color: 'black',
+      fontSize: 10,
+      opacity: 0.5,
+      textAlign: 'center',
+      marginTop: 10
     }
 })

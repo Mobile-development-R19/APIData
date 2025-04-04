@@ -8,13 +8,7 @@ const FoodSearch = ({ navigation }) => {
     const [loading, setLoading] = useState(false);
 
     const handleSearch = async () => {
-        if (query.length === 0) {
-            const response = await axios.get(`https://fineli.fi/fineli/api/v1/foods`, {
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-                }
-            })
-        }
+       
         setLoading(true);
 
         try {
@@ -49,7 +43,7 @@ const FoodSearch = ({ navigation }) => {
                     <TouchableOpacity
                         key={food.id}
                         style={styles.card}
-                        onPress={() => navigation.navigate('FoodDetails', { foodId: food.id })}
+                        onPress={() => navigation.navigate('Ravintotiedot', { foodId: food.id })}
                     >
                         <Text style={styles.foodName}>{food.name.fi}</Text>
                     </TouchableOpacity>
