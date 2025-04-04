@@ -20,6 +20,7 @@ const FoodDetails = ({ route }) => {
                 }
                 const data = await response.json();
                 setFoodDetails(data);
+                
             } catch (error) {
                 console.error("Error fetching food details:", error);
             } finally {
