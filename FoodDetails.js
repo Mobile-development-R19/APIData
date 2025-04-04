@@ -66,7 +66,9 @@ export default function FoodDetails({ route }) {
             
             {/* Käyttäjän syöttämä määrä grammoina */}
             <View style={styles.card}>
+              
                 <Text style={styles.label}>Anna määrä (grammoina, max 5000g):</Text>
+
                 <TextInput
                     style={styles.input}
                     keyboardType="numeric"

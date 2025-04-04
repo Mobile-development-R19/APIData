@@ -12,7 +12,7 @@ export default function HomeScreen({ navigation }) {
       <TouchableOpacity
        style={styles.button}
       onPress={() => navigation.navigate('Haku')}>
-        <Text style={styles.buttonText}>Hae ruokia APIsta</Text>
+        <Text style={styles.buttonText}>Hae elintarvikkeita APIsta</Text>
       </TouchableOpacity>
 
       <Text style={styles.disclaimer}>APIn tarjoaa Fineli</Text>
