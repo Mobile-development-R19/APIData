@@ -9,7 +9,15 @@ const FoodDetails = ({ route }) => {
     useEffect(() => {
         const fetchFoodDetails = async () => {
             try {
-                const response = await fetch(`https://fineli.fi/fineli/api/v1/foods/${foodId}`);
+                const response = await fetch(`https://fineli.fi/fineli/api/v1/foods/${foodId}`,{   
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
                 const data = await response.json();
                 setFoodDetails(data);
             } catch (error) {
@@ -32,7 +40,7 @@ const FoodDetails = ({ route }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{foodDetails.name.fi || "Tuntematon ruoka"}</Text>
+            <Text style={styles.title}>{foodDetails.name.fi || "Tuntematon ruoka"} per 100g</Text>
             <Text>Kalorit: {parseInt(foodDetails.energyKcal)} kcal</Text>
             <Text>Proteiinit: {parseInt(foodDetails.protein)} g</Text>
             <Text>Rasvat: {parseInt(foodDetails.fat)} g</Text>
