@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextInput, View, Text, StyleSheet, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
-const FoodSearch = ({ navigation }) => {
+export default function FoodSearch({ navigation })  {
     const [query, setQuery] = useState("");
     const [foods, setFoods] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -89,4 +89,3 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FoodSearch;
