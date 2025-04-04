@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, TextInput } from 'react-native';
 
-const FoodDetails = ({ route }) => {
+export default function FoodDetails({ route }) {
     const { foodId } = route.params;
     const [foodDetails, setFoodDetails] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -10,6 +10,7 @@ const FoodDetails = ({ route }) => {
 
     useEffect(() => {
         const fetchFoodDetails = async () => {
+            setLoading(true)
             try {
                 const response = await fetch(`https://fineli.fi/fineli/api/v1/foods/${foodId}`, {
                     headers: {
@@ -53,7 +54,9 @@ const FoodDetails = ({ route }) => {
             <Text style={styles.title}>{foodDetails.name.fi || "Tuntematon ruoka"}</Text>
             
             <View style={styles.card}>
-                <Text style={styles.label}>Anna määrä (grammoina, 50g - 1000g):</Text>
+              
+                <Text style={styles.label}>Anna määrä (grammoina, max 5000g):</Text>
+
                 <TextInput
                     style={styles.input}
                     keyboardType="numeric"
@@ -106,4 +109,3 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FoodDetails;
