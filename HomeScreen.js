@@ -5,6 +5,8 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
 
+      {/* Etusivu */}
+
       <Text style={styles.title}>Fineli API -sovellus</Text>
 
       <TouchableOpacity
