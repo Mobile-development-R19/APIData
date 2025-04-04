@@ -54,7 +54,9 @@ export default function FoodDetails({ route }) {
             <Text style={styles.title}>{foodDetails.name.fi || "Tuntematon ruoka"}</Text>
             
             <View style={styles.card}>
+              
                 <Text style={styles.label}>Anna määrä (grammoina, max 5000g):</Text>
+
                 <TextInput
                     style={styles.input}
                     keyboardType="numeric"
