@@ -60,7 +60,7 @@ export default function FoodDetails({ route }) {
                 <TextInput
                     style={styles.input}
                     keyboardType="numeric"
-                    value={String(quantity)}
+                    value={quantity === 0 ? "" : String(quantity)}
                     onChangeText={value => setQuantity(Math.min(Math.max(parseInt(value) || 0, 0), 5000))}
                 />
             </View>
