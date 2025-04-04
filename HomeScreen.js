@@ -5,6 +5,8 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
 
+      <Text style={styles.title}>Fineli API -sovellus</Text>
+
       <TouchableOpacity
        style={styles.button}
       onPress={() => navigation.navigate('FoodSearch')}>
@@ -30,5 +32,11 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 16,
         textAlign: 'center'
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      padding: 20
     }
 })
